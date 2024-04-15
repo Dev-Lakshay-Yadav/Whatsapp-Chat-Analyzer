@@ -2,11 +2,9 @@ import emoji
 import collections as c
 import pandas as pd
 
-# for visualization
 import plotly.express as px
 import matplotlib.pyplot as plt
 
-# word cloud
 from wordcloud import WordCloud, STOPWORDS
 
 
@@ -54,7 +52,6 @@ def visualize_emoji(data):
     
     fig = px.pie(emoji_df, values='count', names='emoji', color_discrete_map="identity", title='Emoji Distribution')
     fig.update_traces(textposition='inside', textinfo='percent+label')
-    # fig.show()
     return fig
 
 def word_cloud(df):
@@ -65,10 +62,8 @@ def word_cloud(df):
     df = df[df['Message'] != 'This message was deleted']
     words = ' '.join(df['Message'])
     processed_words = ' '.join([word for word in words.split() if 'http' not in word and not word.startswith('@') and word != 'RT'])
-    # To stop article, punctuations
     wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white', height=640, width=800).generate(processed_words)
     
-    # plt.figure(figsize=(45,8))
     fig = plt.figure()
     ax = fig.subplots()
     ax.imshow(wordcloud, interpolation='bilinear')
@@ -145,7 +140,6 @@ def day_wise_count(data):
         )),
     showlegend=False
     )
-    # fig.show()
     return fig
 
 def num_messages(data):
@@ -168,7 +162,6 @@ def num_messages(data):
     date_df.reset_index(inplace=True)
     fig = px.line(date_df, x="Date", y="MessageCount")
     fig.update_xaxes(nticks=20)
-    # fig.show()
     return fig
 
 def chatter(data):
@@ -194,7 +187,6 @@ def chatter(data):
              color_discrete_sequence=["red", "green", "blue", "goldenrod", "magenta"],
              title='Number of messages corresponding to author'
             )
-    # fig.show()
     return fig
 
 

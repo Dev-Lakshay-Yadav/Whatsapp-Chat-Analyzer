@@ -11,7 +11,6 @@ from custom_modules import func_analysis as analysis
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-# ------------------------------------------------
 
 st.title("WhatsApp Chat Analyzer 😃")
 st.markdown(

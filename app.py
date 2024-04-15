@@ -39,7 +39,6 @@ st.sidebar.markdown("**Don't worry your data is not stored!**")
 st.sidebar.markdown("**feel free to use 😊.**")
 
 
-# ===========================================================
 if filename is not None:
 
     @st.cache_data

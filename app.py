@@ -38,6 +38,9 @@ st.sidebar.markdown("**Don't worry your data is not stored!**")
 st.sidebar.markdown("**feel free to use 😊.**")
 
 
+
+
+
 if filename is not None:
 
     @st.cache_data
@@ -57,7 +60,6 @@ if filename is not None:
                         file_contents.append('')
         else:
             st.error("Please upload the WhatsApp chat dataset!")
-
         return func.read_data(file_contents, date_format)
 
     try:
